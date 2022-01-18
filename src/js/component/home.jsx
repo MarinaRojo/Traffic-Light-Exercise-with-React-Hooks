@@ -1,24 +1,74 @@
-import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useState } from "react";
+import "../../styles/index.css";
 
 //create your first component
 const Home = () => {
+	const [color, setColor] = useState("green");
+
+	const changeLight = (newColor) => {
+		if (newColor == "next") {
+			console.log("clicked");
+			switch (color) {
+				case "red":
+					setColor("green");
+					break;
+				case "yellow":
+					setColor("red");
+					break;
+				case "green":
+					setColor("yellow");
+					break;
+			}
+		} else {
+			setColor(newColor);
+		}
+	};
+
 	return (
 		<div>
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+			<div className="trafficTop"></div>
+			<div className="trafficLight">
+				<div
+					className={
+						"circle red" +
+						(color == "red"
+							? "circle red selected"
+							: "circle red unselected")
+					}
+					onClick={() => {
+						changeLight("red");
+					}}></div>
+				<div
+					className={
+						"circle yellow" +
+						(color == "yellow"
+							? "circle yellow selected"
+							: "circle yellow unselected")
+					}
+					onClick={() => {
+						changeLight("yellow");
+					}}></div>
+				<div
+					className={
+						"circle green" +
+						(color == "green"
+							? "circle green selected"
+							: "circle green unselected")
+					}
+					onClick={() => {
+						changeLight("green");
+					}}></div>
+			</div>
+			<div className="text-center mt-3">
+				<div
+					type="button"
+					className="btn btn-secondary"
+					onClick={() => {
+						changeLight("next");
+					}}>
+					Change color
+				</div>
+			</div>
 		</div>
 	);
 };
