@@ -40,20 +40,18 @@ const Home = () => {
 					}}></div>
 				<div
 					className={
-						"circle yellow" +
-						(color == "yellow"
+						color == "yellow"
 							? "circle yellow selected"
-							: "circle yellow unselected")
+							: "circle yellow unselected"
 					}
 					onClick={() => {
 						changeLight("yellow");
 					}}></div>
 				<div
 					className={
-						"circle green" +
-						(color == "green"
+						color == "green"
 							? "circle green selected"
-							: "circle green unselected")
+							: "circle green unselected"
 					}
 					onClick={() => {
 						changeLight("green");
