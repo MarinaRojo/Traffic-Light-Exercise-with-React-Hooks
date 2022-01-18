@@ -30,10 +30,9 @@ const Home = () => {
 			<div className="trafficLight">
 				<div
 					className={
-						"circle red" +
-						(color == "red"
+						color == "red"
 							? "circle red selected"
-							: "circle red unselected")
+							: "circle red unselected"
 					}
 					onClick={() => {
 						changeLight("red");
